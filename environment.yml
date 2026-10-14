@@ -1,0 +1,22 @@
+name: adaptive_ic
+channels:
+  - conda-forge
+dependencies:
+  # Match the reference repository where practical.  The explicit OpenBLAS
+  # selection avoids the broken MKL matrix-multiplication runtime seen on the
+  # current Windows host.
+  # 3.8.11 is no longer present in the active conda-forge win-64 index;
+  # resolve the latest available Python 3.8 patch release instead.
+  - python=3.8
+  - numpy=1.23.5
+  - scipy=1.10.1
+  - scikit-learn=1.2.2
+  - matplotlib=3.7.1
+  - seaborn=0.12.2
+  - pandas=1.5.3
+  - tqdm=4.66.4
+  - pyyaml=6.0.1
+  - libblas=*=*openblas
+  - libcblas=*=*openblas
+  - liblapack=*=*openblas
+

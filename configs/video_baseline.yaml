@@ -1,0 +1,10 @@
+dataset: video
+num_users: 200
+num_items: 10000
+num_iter: 500
+num_rec: 10
+alpha: 0.0
+beta: 7.0
+gamma_plus: 1.0
+gamma_minus: -0.1
+sigma: 0.01

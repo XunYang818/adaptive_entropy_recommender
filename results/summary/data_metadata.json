@@ -1,0 +1,76 @@
+[
+  {
+    "dataset": "video",
+    "num_topics": 20,
+    "num_items": 10000,
+    "phi_shape": [
+      20,
+      20
+    ],
+    "mu_user_shape": [
+      20
+    ],
+    "topic_item_counts": [
+      198,
+      199,
+      242,
+      267,
+      299,
+      344,
+      319,
+      382,
+      367,
+      426,
+      429,
+      419,
+      465,
+      458,
+      463,
+      478,
+      560,
+      680,
+      879,
+      2126
+    ],
+    "source_files": [
+      "video\\phi_v1.npy",
+      "video\\item_popularity_v1.npy",
+      "video\\user_alpha_mean_v1.npy"
+    ],
+    "validation": "passed"
+  },
+  {
+    "dataset": "news",
+    "num_topics": 14,
+    "num_items": 10000,
+    "phi_shape": [
+      14,
+      14
+    ],
+    "mu_user_shape": [
+      14
+    ],
+    "topic_item_counts": [
+      83,
+      96,
+      121,
+      121,
+      273,
+      298,
+      407,
+      411,
+      434,
+      443,
+      484,
+      608,
+      3044,
+      3177
+    ],
+    "source_files": [
+      "news\\phi_news.npy",
+      "news\\item_popularity_news.npy",
+      "news\\user_alpha_mean_news.npy"
+    ],
+    "validation": "passed"
+  }
+]

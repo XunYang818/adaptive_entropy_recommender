@@ -1,0 +1,34 @@
+reproduction:
+  users: 150
+  iterations: 500
+  parameter_sweeps:
+    - name: beta
+      values:
+        beta: [0.0, 4.0, 7.0]
+    - name: gamma_plus
+      values:
+        beta: [7.0]
+        gamma_plus: [0.0, 0.3, 1.0]
+    - name: gamma_minus
+      values:
+        beta: [7.0]
+        gamma_minus: [-0.1, -0.3, -0.9]
+    - name: sigma
+      values:
+        beta: [10.0]
+        sigma: [0.04, 0.07, 0.16]
+
+comparison:
+  users: 200
+  iterations: 500
+  seeds: [4, 5, 6]
+  methods: [baseline, fixed, adaptive]
+  fixed_epsilon: 0.10
+adaptive:
+  users: 150
+  iterations: 500
+  history_window: [50, 100, 200]
+  target_entropy: [0.60, 0.75, 0.90]
+  epsilon_min: 0.02
+  epsilon_max: 0.20
+  gain: 0.40
