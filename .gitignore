@@ -4,3 +4,4 @@ __pycache__/
 results/smoke/
 results/figures/*.png
 results/summary/all_summaries.csv
+.checkpoints/

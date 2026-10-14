@@ -11,8 +11,8 @@ from typing import Dict, Any, Iterable, Tuple
 import yaml
 
 ROOT = Path(__file__).resolve().parents[1]
-# Keep resumable state outside the project tree and separate from final results.
-PROCESS_ROOT = ROOT.parents[1] / "codex_proc" / "adaptive_ic" / "checkpoints"
+# Keep resumable state in a project-local hidden directory, separate from final results.
+PROCESS_ROOT = ROOT / ".checkpoints" / "adaptive_ic"
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 from src.data_preprocess import load_dataset

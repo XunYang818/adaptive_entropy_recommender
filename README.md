@@ -1,6 +1,6 @@
 # 自适应探索推荐算法实验代码
 
-本项目复现 Piao 等人的 Human–AI adaptive dynamics 模型，并比较原论文基线、固定比例探索和基于近期推荐主题熵的自适应探索。当前交付物是代码和实验结果，未修改课程 Word 报告。
+本项目复现 Piao 等人的 Human–AI adaptive dynamics 模型，并比较原论文基线、固定比例探索和基于近期推荐主题熵的自适应探索。项目包含代码、正式实验结果和可复现实验配置，实验报告作为单独文件提交。
 
 ## 环境
 
@@ -12,11 +12,7 @@ conda activate adaptive_ic
 python -m pip check
 ```
 
-`environment.yml` follows the reference repository's Python 3.8 / NumPy 1.23.5
-stack where packages are still available, and pins OpenBLAS for stable matrix
-operations on the current Windows host. The exact reference Python 3.8.11
-patch release is no longer available from the active conda-forge index, so the
-environment resolves the latest available Python 3.8 patch release.
+`environment.yml` 参考原项目的 Python 3.8 / NumPy 1.23.5 环境配置，并固定使用 OpenBLAS，以保证当前 Windows 环境中的矩阵运算稳定。由于 conda-forge 当前索引中已不再提供 Python 3.8.11，环境会解析可用的最新 Python 3.8 补丁版本。
 
 如果环境已经存在，可使用：
 
@@ -45,9 +41,7 @@ python scripts/run_comparison.py --quick
 python scripts/run_sensitivity.py --quick
 ```
 
-Smoke outputs are written under `results/smoke` automatically. They are kept
-separate from formal outputs under `results/raw` and are excluded from plots by
-default.
+小规模测试结果会自动写入 `results/smoke`，与 `results/raw` 下的正式结果分开保存，默认绘图时不纳入小规模测试结果。
 
 ## 正式实验
 
@@ -61,7 +55,7 @@ python src/plotting.py --result-root results/raw --figure-root results/figures
 
 项目默认采用课程作业规模，避免直接运行论文的大规模模拟：论文复现为 150 用户、500 轮；三方法比较为 200 用户、500 轮；敏感性实验为 150 用户、500 轮。数据集、物品数、方法、参数网格和比较实验的三个随机种子保持不变。若只需要先跑单个数据集，可使用 `--dataset video` 或 `--dataset news`；如需临时调整规模，再使用 `--users` 和 `--iters` 覆盖默认值。
 
-正式运行器每完成 100 轮会把模拟状态保存到项目外的独立过程目录，再次使用相同输出路径和配置运行时会自动从最近检查点继续。若要进行一次全新的独立运行，请指定新的 `--output-root`。
+正式运行器每完成 100 轮会把模拟状态保存到项目内的独立断点目录，再次使用相同输出路径和配置运行时会自动从最近检查点继续。若要进行一次全新的独立运行，请指定新的 `--output-root`。
 
 ## 指标
 
